@@ -1,0 +1,51 @@
+# Virtual environments
+venv/
+venv311/
+.venv/
+.venv311/
+env/
+.conda/
+
+# Python cache and tooling
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local secrets
+.env
+.env.local
+.env.*.local
+
+# Editor history and IDE state
+.history/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large archives
+*.zip
+*.rar
+*.7z
+
+# Large model weights
+*.pt
+*.pth
+*.keras
+*.h5
+!models/person_detection/yolov8n.pt
+
+# Local test outputs, media, and logs
+outputs/
+logs/
+evidence/
+backup*/
+output/
+*.mp4
+*.avi
+*.mov
+*.log
+alert.jpg

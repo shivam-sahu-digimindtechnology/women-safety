@@ -1,0 +1,31 @@
+# Core ML/CV
+ultralytics>=8.0.0
+opencv-python>=4.8.0
+mediapipe==0.10.9  # newer versions dropped the legacy mp.solutions API this project uses
+lap>=0.5.12        # required for ByteTrack persistent multi-object tracking
+
+
+# Transformers & PyTorch (gender detection)
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.30.0
+pillow>=9.0.0
+
+# Telegram alerts
+pyTelegramBotAPI>=4.10.0
+
+# Vapi/Omnidimension call alerts
+requests>=2.31.0
+
+# CLIP-based zero-shot violence/scene classification (Violence_Detection.py)
+# Install separately: pip install git+https://github.com/openai/CLIP.git
+ftfy>=6.0.0
+regex
+tqdm
+
+# .env file loading
+python-dotenv>=1.0.0
+
+# Utilities
+numpy>=1.24.0
+scipy>=1.10.0

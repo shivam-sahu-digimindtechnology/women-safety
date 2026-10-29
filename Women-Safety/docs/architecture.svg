@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" font-family="'Space Mono','SF Mono',Menlo,monospace">
+  <defs>
+    <marker id="ar--head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8A99A5"/>
+    </marker>
+    <style>
+      .bg   { fill:#0B0E11; }
+      .panel{ fill:#141A1F; stroke:#26313A; stroke-width:1; }
+      .ml   { fill:#141A1F; stroke:#1c8f5a; stroke-width:1.4; }
+      .heur { fill:#141A1F; stroke:#8a5a10; stroke-width:1.4; }
+      .out  { fill:#141A1F; stroke:#C6362F; stroke-width:1.4; }
+      .k    { fill:#5C6B76; font-size:10px; letter-spacing:1.2px; }
+      .t    { fill:#E8EDF0; font-size:13px; font-weight:700; }
+      .d    { fill:#8A99A5; font-size:10.5px; }
+      .flow { stroke:#8A99A5; stroke-width:1.3; fill:none; marker-end:url(#ar--head); }
+      .lane { fill:#5C6B76; font-size:10px; letter-spacing:2px; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="960" height="440"/>
+  <text class="t" x="28" y="36" font-size="15">Guardian Eye — single-frame threat-detection pipeline</text>
+  <text class="k" x="28" y="54">TEAM GUARDIAN EYE · SMART INDIA HACKATHON</text>
+
+  <!-- lane labels -->
+  <text class="lane" x="28" y="92">CAPTURE</text>
+  <text class="lane" x="28" y="176">DETECT + TRACK</text>
+  <text class="lane" x="28" y="300">ANALYSE</text>
+  <text class="lane" x="28" y="404">DECIDE + DISPATCH</text>
+
+  <!-- capture -->
+  <rect class="panel" x="150" y="70" width="180" height="46" rx="6"/>
+  <text class="t" x="164" y="90">VideoStream</text>
+  <text class="d" x="164" y="106">threaded grab · rotate · 640px</text>
+
+  <!-- detect + track -->
+  <rect class="ml" x="150" y="150" width="200" height="52" rx="6"/>
+  <text class="k" x="164" y="167">ML</text>
+  <text class="t" x="164" y="182">YOLOv8n-pose</text>
+  <text class="d" x="164" y="197">person boxes + 17 keypoints</text>
+
+  <rect class="heur" x="380" y="150" width="200" height="52" rx="6"/>
+  <text class="k" x="394" y="167">HEURISTIC</text>
+  <text class="t" x="394" y="182">CentroidTracker</text>
+  <text class="d" x="394" y="197">stable ID per person</text>
+
+  <!-- analyse row -->
+  <rect class="ml" x="120" y="256" width="150" height="70" rx="6"/>
+  <text class="k" x="132" y="273">ML · per person</text>
+  <text class="t" x="132" y="289">Pose_Detection</text>
+  <text class="d" x="132" y="304">fall state machine</text>
+  <text class="d" x="132" y="317">yolov8n-pose.pt</text>
+
+  <rect class="ml" x="286" y="256" width="150" height="70" rx="6"/>
+  <text class="k" x="298" y="273">ML · face visible</text>
+  <text class="t" x="298" y="289">Gender_Detection</text>
+  <text class="d" x="298" y="304">Transformers pipeline</text>
+  <text class="d" x="298" y="317">rizvandwiki/gender</text>
+
+  <rect class="heur" x="452" y="256" width="150" height="70" rx="6"/>
+  <text class="k" x="464" y="273">HEURISTIC</text>
+  <text class="t" x="464" y="289">Emotion_Detection</text>
+  <text class="d" x="464" y="304">MediaPipe landmarks</text>
+  <text class="d" x="464" y="317">Fear / Distress / …</text>
+
+  <rect class="heur" x="618" y="256" width="150" height="70" rx="6"/>
+  <text class="k" x="630" y="273">HEURISTIC</text>
+  <text class="t" x="630" y="289">Interaction_Det.</text>
+  <text class="d" x="630" y="304">wrist + centroid vel.</text>
+  <text class="d" x="630" y="317">fight / snatch</text>
+
+  <rect class="ml" x="784" y="256" width="150" height="70" rx="6"/>
+  <text class="k" x="796" y="273">ML · whole frame</text>
+  <text class="t" x="796" y="289">Violence_Det.</text>
+  <text class="d" x="796" y="304">CLIP ViT-B/32</text>
+  <text class="d" x="796" y="317">zero-shot scene</text>
+
+  <!-- decide -->
+  <rect class="out" x="300" y="374" width="360" height="44" rx="6"/>
+  <text class="k" x="314" y="391">8 RULES OVER COMBINED SIGNALS</text>
+  <text class="t" x="314" y="407">Telegram alert · AI voice call · evidence clip</text>
+
+  <!-- flows -->
+  <path class="flow" d="M240 116 V150"/>
+  <path class="flow" d="M350 176 H380"/>
+  <path class="flow" d="M195 202 V256"/>
+  <path class="flow" d="M361 202 Q361 230 361 256"/>
+  <path class="flow" d="M480 202 Q527 230 527 256"/>
+  <path class="flow" d="M540 202 Q693 235 693 256"/>
+  <path class="flow" d="M560 176 Q859 210 859 256"/>
+  <path class="flow" d="M195 326 Q220 360 320 374"/>
+  <path class="flow" d="M361 326 V374"/>
+  <path class="flow" d="M527 326 V374"/>
+  <path class="flow" d="M693 326 Q660 356 600 374"/>
+  <path class="flow" d="M859 326 Q859 360 655 376"/>
+</svg>
